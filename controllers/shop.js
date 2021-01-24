@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-require('dotenv').config()
 const stripe = require('stripe')(process.env.STRIPE_SK_KEY);
 
 const PDFDocument = require('pdfkit');
@@ -161,7 +160,7 @@ exports.getCheckout = (req, res, next) => {
             name: p.productId.title,
             description: p.productId.description,
             amount: p.productId.price * 100,
-            currency: 'usd',
+            currency: 'INR',
             quantity: p.quantity
           };
         }),

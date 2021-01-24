@@ -1,6 +1,5 @@
 const path = require('path');
-const fs=require('fs');
-
+const fs=require("fs");
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -11,7 +10,6 @@ const flash = require('connect-flash');
 const multer = require('multer');
 const helmet=require("helmet");
 const morgan= require("morgan");
-
 
 const errorController = require('./controllers/error');
 const User = require('./models/user');
@@ -124,9 +122,7 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(MONGODB_URI,{ useNewUrlParser: true , useUnifiedTopology: true})
   .then(result => {
-    app.listen(process.env.PORT || 3000,()=>{
-      console.log("server is up");
-    });
+    app.listen(3000,()=>{console.log("server is up")});
   })
   .catch(err => {
     console.log(err);
